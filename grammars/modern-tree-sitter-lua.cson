@@ -1,0 +1,37 @@
+name: 'Lua'
+scopeName: 'source.lua'
+type: 'modern-tree-sitter'
+parser: 'tree-sitter-lua'
+
+injectionRegex: '^(lua|LUA)$'
+
+firstLineRegex: [
+  # shebang line
+  '^#![ \\t]*/.*\\blua[\\d.]*\\b'
+
+  # vim modeline
+  'vim\\b.*\\bset\\b.*\\b(filetype|ft|syntax)=lua'
+]
+
+fileTypes: [
+  'lua'
+  'nse'
+  'rockspec'
+  'luacheckrc'
+  'lakefile'
+  'p8'
+  'rbxs'
+  'wlua'
+]
+
+treeSitter:
+  parserSource: 'github:tree-sitter-grammars/tree-sitter-lua#v0.4.1'
+  grammar: 'ts/tree-sitter-lua.wasm'
+  highlightsQuery: 'ts/highlights.scm'
+  foldsQuery: 'ts/folds.scm'
+  indentsQuery: 'ts/indents.scm'
+  localsQuery: 'ts/locals.scm'
+  tagsQuery: 'ts/tags.scm'
+
+comments:
+  start: '-- '

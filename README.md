@@ -1,10 +1,21 @@
-Lua language support in Atom
+Lua language support in Pulsar
 ======
 
-Add syntax highlighting and snippets to Lua files in Atom.
+Syntax highlighting, snippets and code folding for Lua files in [Pulsar](https://pulsar-edit.dev).
 
-See: https://atom.io/packages/language-lua
-and: https://www.npmjs.com/package/language-lua
+Ships two grammars:
+
+- **Modern tree-sitter grammar** (default) — powered by
+  [tree-sitter-lua](https://github.com/tree-sitter-grammars/tree-sitter-lua),
+  bundled as WebAssembly. Provides accurate highlighting, indentation, folding
+  and symbol navigation.
+- **TextMate grammar** — automatic fallback when tree-sitter is disabled.
+
+Targets **Lua 5.4** (integer division `//`, bitwise operators, `<const>` /
+`<close>` variable attributes, `goto` labels, the `utf8` library,
+`string.pack`, `table.move`, `warn`, …) while keeping **Lua 5.1 / LuaJIT**
+built-ins highlighted for compatibility. LuaJIT `ffi.cdef[[ ... ]]` blocks are
+highlighted as embedded C.
 
 Common snippets
 ---
@@ -24,6 +35,11 @@ Common snippets
 | lfun          | local function           | local function functionName (args) -- body... end |
 | loc           | local variable definition shortcut | local x = 1 |
 | local         | local variable definition | local x = 1 |
+| const         | local const (Lua 5.4)    | local x <const> = value |
+| close         | local close (Lua 5.4)    | local handle <close> = value |
+| goto          | goto label               | goto label           |
+| label         | label                    | ::label::            |
+| pcall         | protected call           | local ok, err = pcall(fn) |
 | ltab          | local table definition   | local name = {}      |
 | print         | print                    | print("logging")     |
 | rep           | repeat loop shortcut     | repeat -- body... until condition |
@@ -80,6 +96,24 @@ Math function snippets
 | sqrt          | math.sqrt                | math.sqrt(x)         |
 | tan           | math.tan                 | math.tan(x)          |
 | tanh          | math.tanh                | math.tanh(x)         |
+
+Development
+------
+
+Specs live in `spec/` (Jasmine, run inside Pulsar):
+
+```sh
+pulsar --test spec        # or: ppm test
+```
+
+Coverage:
+
+- `grammar-registration-spec.js` — both grammars register for `source.lua`;
+  file-type and shebang selection.
+- `textmate-grammar-spec.js` — Lua 5.4 tokenization in the TextMate fallback
+  (operators, attributes, labels, numbers, escapes, library functions).
+- `tree-sitter-grammar-spec.js` — scope assertions for the modern grammar.
+- `folding-spec.js` — folding of functions, blocks, tables and block comments.
 
 Author
 ------

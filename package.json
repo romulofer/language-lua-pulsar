@@ -1,13 +1,32 @@
 {
   "name": "language-lua",
-  "version": "0.9.11",
+  "version": "0.10.0",
   "private": false,
+  "main": "lib/main",
   "author": "FireZenk <firezenk@gmail.com>",
-  "description": "Add syntax highlighting and snippets to Lua files in Atom",
+  "description": "Lua language support for Pulsar: tree-sitter highlighting, snippets and folding (Lua 5.4, with Lua 5.1/LuaJIT compatibility).",
   "repository": "https://github.com/FireZenk/language-lua",
   "license": "MIT",
+  "keywords": [
+    "lua",
+    "grammar",
+    "tree-sitter"
+  ],
   "engines": {
-    "atom": ">=0.50.0"
+    "atom": "*",
+    "node": ">=12"
+  },
+  "consumedServices": {
+    "hyperlink.injection": {
+      "versions": {
+        "0.1.0": "consumeHyperlinkInjection"
+      }
+    },
+    "todo.injection": {
+      "versions": {
+        "0.1.0": "consumeTodoInjection"
+      }
+    }
   },
   "dependencies": {}
 }

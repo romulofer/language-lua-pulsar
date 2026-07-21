@@ -1,10 +1,13 @@
-'comment': 'Lua Syntax: version 0.8'
+'comment': 'Lua Syntax: version 5.4 (TextMate fallback grammar)'
 'fileTypes': [
   'lua'
   'nse'
   'rockspec'
   'luacheckrc'
   'lakefile'
+  'p8'
+  'rbxs'
+  'wlua'
 ]
 'firstLineMatch': '\\A#!.*?\\blua\\b'
 'name': 'Lua'
@@ -27,7 +30,30 @@
     'name': 'meta.function.lua'
   }
   {
-    'match': '(?<![\\d.])\\s0x[a-fA-F\\d]+|\\b\\d+(\\.\\d+)?([eE]-?\\d+)?|\\.\\d+([eE]-?\\d+)?'
+    'comment': 'Variable attributes: local x <const> / <close>'
+    'match': '(<)\\s*(const|close)\\s*(>)'
+    'captures':
+      '1':
+        'name': 'punctuation.definition.attribute.begin.lua'
+      '2':
+        'name': 'storage.modifier.lua'
+      '3':
+        'name': 'punctuation.definition.attribute.end.lua'
+  }
+  {
+    'comment': 'Goto labels: ::name::'
+    'match': '(::)\\s*([a-zA-Z_]\\w*)\\s*(::)'
+    'captures':
+      '1':
+        'name': 'punctuation.definition.label.begin.lua'
+      '2':
+        'name': 'entity.name.label.lua'
+      '3':
+        'name': 'punctuation.definition.label.end.lua'
+  }
+  {
+    'comment': 'Hexadecimal (with optional fraction / binary exponent) and decimal numbers'
+    'match': '(?<![\\w.])0[xX][0-9a-fA-F.]+(?:[pP][-+]?\\d+)?|(?<![\\w.])(?:\\d+\\.?\\d*|\\.\\d+)(?:[eE][-+]?\\d+)?'
     'name': 'constant.numeric.lua'
   }
   {
@@ -48,7 +74,7 @@
         'include': 'punctuation.definition.string.end.lua'
       }
       {
-        'match': '\\\\.'
+        'match': '\\\\[abfnrtvz\\\\"\'\\n]|\\\\x[0-9a-fA-F]{2}|\\\\\\d{1,3}|\\\\u\\{[0-9a-fA-F]+\\}|\\\\.'
         'name': 'constant.character.escape.lua'
       }
     ]
@@ -71,7 +97,7 @@
         'include': 'punctuation.definition.string.end.lua'
       }
       {
-        'match': '\\\\.'
+        'match': '\\\\[abfnrtvz\\\\"\'\\n]|\\\\x[0-9a-fA-F]{2}|\\\\\\d{1,3}|\\\\u\\{[0-9a-fA-F]+\\}|\\\\.'
         'name': 'constant.character.escape.lua'
       }
     ]
@@ -137,7 +163,7 @@
     'name': 'keyword.control.lua'
   }
   {
-    'match': '(?<![^.]\\.|:)\\b([A-Z_]+|false|nil|true|math\\.(pi|huge))\\b|(?<![.])\\.{3}(?!\\.)'
+    'match': '(?<![^.]\\.|:)\\b([A-Z_]+|false|nil|true|math\\.(pi|huge|maxinteger|mininteger))\\b|(?<![.])\\.{3}(?!\\.)'
     'name': 'constant.language.lua'
   }
   {
@@ -145,11 +171,11 @@
     'name': 'variable.language.self.lua'
   }
   {
-    'match': '(?<![^.]\\.|:)\\b(assert|collectgarbage|dofile|error|getfenv|getmetatable|ipairs|loadfile|loadstring|module|next|pairs|pcall|print|rawequal|rawget|rawset|require|select|setfenv|setmetatable|tonumber|tostring|type|unpack|xpcall)\\b(?=\\s*(?:[({"\']|\\[\\[))'
+    'match': '(?<![^.]\\.|:)\\b(assert|collectgarbage|dofile|error|getfenv|getmetatable|ipairs|load|loadfile|loadstring|module|next|pairs|pcall|print|rawequal|rawget|rawlen|rawset|require|select|setfenv|setmetatable|tonumber|tostring|type|unpack|warn|xpcall)\\b(?=\\s*(?:[({"\']|\\[\\[))'
     'name': 'support.function.lua'
   }
   {
-    'match': '(?<![^.]\\.|:)\\b(coroutine\\.(create|resume|running|status|wrap|yield)|string\\.(byte|char|dump|find|format|gmatch|gsub|len|lower|match|rep|reverse|sub|upper)|table\\.(concat|insert|maxn|remove|sort)|math\\.(abs|acos|asin|atan2?|ceil|cosh?|deg|exp|floor|fmod|frexp|ldexp|log|log10|max|min|modf|pow|rad|random|randomseed|sinh?|sqrt|tanh?)|io\\.(close|flush|input|lines|open|output|popen|read|tmpfile|type|write)|os\\.(clock|date|difftime|execute|exit|getenv|remove|rename|setlocale|time|tmpname)|package\\.(cpath|loaded|loadlib|path|preload|seeall)|debug\\.(debug|[gs]etfenv|[gs]ethook|getinfo|[gs]etlocal|[gs]etmetatable|getregistry|[gs]etupvalue|traceback))\\b(?=\\s*(?:[({"\']|\\[\\[))'
+    'match': '(?<![^.]\\.|:)\\b(coroutine\\.(close|create|isyieldable|resume|running|status|wrap|yield)|string\\.(byte|char|dump|find|format|gmatch|gsub|len|lower|match|pack|packsize|rep|reverse|sub|unpack|upper)|table\\.(concat|insert|maxn|move|pack|remove|sort|unpack)|math\\.(abs|acos|asin|atan|atan2|ceil|cosh?|deg|exp|floor|fmod|frexp|ldexp|log|log10|max|min|modf|pow|rad|random|randomseed|sinh?|sqrt|tanh?|tointeger|type|ult)|utf8\\.(char|codepoint|codes|len|offset)|io\\.(close|flush|input|lines|open|output|popen|read|tmpfile|type|write)|os\\.(clock|date|difftime|execute|exit|getenv|remove|rename|setlocale|time|tmpname)|package\\.(config|cpath|loaded|loadlib|path|preload|searchers|searchpath|seeall)|debug\\.(debug|[gs]etfenv|[gs]ethook|getinfo|[gs]etlocal|[gs]etmetatable|getregistry|[gs]etupvalue|[gs]etuservalue|traceback|upvalueid|upvaluejoin))\\b(?=\\s*(?:[({"\']|\\[\\[))'
     'name': 'support.function.library.lua'
   }
   {
@@ -161,7 +187,8 @@
     'name': 'variable.other.lua'
   }
   {
-    'match': '\\+|-|%|#|\\*|\\/|\\^|==?|~=|<=?|>=?|(?<!\\.)\\.{2}(?!\\.)'
+    'comment': 'Operators: arithmetic, bitwise, comparison, concat, length'
+    'match': '\\/\\/|<<|>>|[&|~]|\\+|-|%|#|\\*|\\/|\\^|==?|~=|<=?|>=?|(?<!\\.)\\.{2}(?!\\.)'
     'name': 'keyword.operator.lua'
   }
 ]

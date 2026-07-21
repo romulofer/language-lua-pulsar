@@ -1,1 +1,7 @@
 npm-debug.log
+
+# AI agent artifacts
+.claude/
+.aider*
+.cursor/
+CLAUDE.local.md

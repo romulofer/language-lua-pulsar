@@ -38,6 +38,21 @@
   'local variable definition':
     'prefix': 'local'
     'body': 'local ${1:x} = ${0:1}'
+  'local const (Lua 5.4)':
+    'prefix': 'const'
+    'body': 'local ${1:x} <const> = ${0:value}'
+  'local close (Lua 5.4)':
+    'prefix': 'close'
+    'body': 'local ${1:handle} <close> = ${0:value}'
+  'goto label':
+    'prefix': 'goto'
+    'body': 'goto ${0:label}'
+  'label':
+    'prefix': 'label'
+    'body': '::${0:label}::'
+  'pcall':
+    'prefix': 'pcall'
+    'body': 'local ${1:ok}, ${2:err} = pcall(${0:fn})'
   'local variable definition shortcut':
     'prefix': 'loc'
     'body': 'local ${1:x} = ${0:1}'
