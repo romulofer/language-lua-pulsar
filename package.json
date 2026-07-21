@@ -1,16 +1,29 @@
 {
-  "name": "language-lua",
+  "name": "language-lua-pulsar",
   "version": "0.10.0",
   "private": false,
   "main": "lib/main",
-  "author": "FireZenk <firezenk@gmail.com>",
   "description": "Lua language support for Pulsar: tree-sitter highlighting, snippets and folding (Lua 5.4, with Lua 5.1/LuaJIT compatibility).",
-  "repository": "https://github.com/FireZenk/language-lua",
+  "author": "Rômulo Fernandes Evangelista (https://github.com/romulofer)",
+  "contributors": [
+    "Jorge Garrido Oval (https://github.com/FireZenk)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/romulofer/language-lua-pulsar.git"
+  },
+  "homepage": "https://github.com/romulofer/language-lua-pulsar#readme",
+  "bugs": {
+    "url": "https://github.com/romulofer/language-lua-pulsar/issues"
+  },
   "license": "MIT",
   "keywords": [
     "lua",
+    "luajit",
     "grammar",
-    "tree-sitter"
+    "tree-sitter",
+    "pulsar",
+    "language"
   ],
   "engines": {
     "atom": "*",
