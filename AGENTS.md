@@ -20,7 +20,7 @@ successor to Atom) providing Lua language support:
 - **`settings/language-lua.cson`** — comment delimiters and indentation rules.
 - **`snippets/language-lua.cson`** — Lua snippets.
 
-Target language: **Lua 5.4**, while keeping **Lua 5.1 / LuaJIT** built-ins
+Target language: **Lua 5.5**, while keeping **Lua 5.1 / LuaJIT** built-ins
 highlighted for compatibility.
 
 ## Conventions

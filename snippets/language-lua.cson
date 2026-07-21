@@ -44,6 +44,12 @@
   'local close (Lua 5.4)':
     'prefix': 'close'
     'body': 'local ${1:handle} <close> = ${0:value}'
+  'global variable definition (Lua 5.5)':
+    'prefix': 'global'
+    'body': 'global ${1:x} = ${0:1}'
+  'global function (Lua 5.5)':
+    'prefix': 'gfun'
+    'body': 'global function ${1:FunctionName} (${2:args})\n\t${0:-- body...}\nend'
   'goto label':
     'prefix': 'goto'
     'body': 'goto ${0:label}'

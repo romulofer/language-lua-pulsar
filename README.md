@@ -11,11 +11,16 @@ Ships two grammars:
   and symbol navigation.
 - **TextMate grammar** — automatic fallback when tree-sitter is disabled.
 
-Targets **Lua 5.4** (integer division `//`, bitwise operators, `<const>` /
-`<close>` variable attributes, `goto` labels, the `utf8` library,
-`string.pack`, `table.move`, `warn`, …) while keeping **Lua 5.1 / LuaJIT**
-built-ins highlighted for compatibility. LuaJIT `ffi.cdef[[ ... ]]` blocks are
-highlighted as embedded C.
+Targets **Lua 5.5** (the `global` declaration keyword, `table.create`, integer
+division `//`, bitwise operators, `<const>` / `<close>` variable attributes,
+`goto` labels, the `utf8` library, `string.pack`, `table.move`, `warn`, …)
+while keeping **Lua 5.1 / LuaJIT** built-ins highlighted for compatibility.
+LuaJIT `ffi.cdef[[ ... ]]` blocks are highlighted as embedded C.
+
+> **Note:** `global` declaration highlighting is currently provided by the
+> TextMate fallback grammar only. The bundled tree-sitter parser is 5.4-era and
+> does not yet parse the 5.5 `global` keyword; it will gain support once an
+> updated `.wasm` parser is available.
 
 Common snippets
 ---
@@ -35,6 +40,8 @@ Common snippets
 | lfun          | local function           | local function functionName (args) -- body... end |
 | loc           | local variable definition shortcut | local x = 1 |
 | local         | local variable definition | local x = 1 |
+| global        | global variable def (Lua 5.5) | global x = 1 |
+| gfun          | global function (Lua 5.5) | global function functionName (args) -- body... end |
 | const         | local const (Lua 5.4)    | local x <const> = value |
 | close         | local close (Lua 5.4)    | local handle <close> = value |
 | goto          | goto label               | goto label           |
@@ -110,7 +117,7 @@ Coverage:
 
 - `grammar-registration-spec.js` — both grammars register for `source.lua`;
   file-type and shebang selection.
-- `textmate-grammar-spec.js` — Lua 5.4 tokenization in the TextMate fallback
+- `textmate-grammar-spec.js` — Lua 5.5 tokenization in the TextMate fallback
   (operators, attributes, labels, numbers, escapes, library functions).
 - `tree-sitter-grammar-spec.js` — scope assertions for the modern grammar.
 - `folding-spec.js` — folding of functions, blocks, tables and block comments.
@@ -120,11 +127,11 @@ About
 
 `language-lua` began as an Atom package and is now maintained for
 [Pulsar](https://pulsar-edit.dev). It has been modernized around a
-tree-sitter grammar and updated to Lua 5.4, while keeping the legacy TextMate
+tree-sitter grammar and updated to Lua 5.5, while keeping the legacy TextMate
 grammar and Lua 5.1 / LuaJIT built-ins for compatibility.
 
 - **Original author:** __Jorge Garrido Oval__ — [github.com/FireZenk](https://github.com/FireZenk)
-- **Pulsar port & Lua 5.4 modernization:** Rômulo Fernandes Evangelista
+- **Pulsar port & Lua 5.4/5.5 modernization:** Rômulo Fernandes Evangelista
 
 Contributors
 ---

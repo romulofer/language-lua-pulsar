@@ -1,4 +1,4 @@
-'comment': 'Lua Syntax: version 5.4 (TextMate fallback grammar)'
+'comment': 'Lua Syntax: version 5.5 (TextMate fallback grammar)'
 'fileTypes': [
   'lua'
   'nse'
@@ -30,7 +30,7 @@
     'name': 'meta.function.lua'
   }
   {
-    'comment': 'Variable attributes: local x <const> / <close>'
+    'comment': 'Variable attributes: local x <const> / <close> (Lua 5.5 also allows global x <const>)'
     'match': '(<)\\s*(const|close)\\s*(>)'
     'captures':
       '1':
@@ -159,7 +159,7 @@
     ]
   }
   {
-    'match': '\\b(and|or|not|break|do|else|for|if|elseif|return|then|repeat|while|until|end|function|local|in|goto)\\b'
+    'match': '\\b(and|or|not|break|do|else|for|if|elseif|return|then|repeat|while|until|end|function|local|global|in|goto)\\b'
     'name': 'keyword.control.lua'
   }
   {
@@ -175,7 +175,7 @@
     'name': 'support.function.lua'
   }
   {
-    'match': '(?<![^.]\\.|:)\\b(coroutine\\.(close|create|isyieldable|resume|running|status|wrap|yield)|string\\.(byte|char|dump|find|format|gmatch|gsub|len|lower|match|pack|packsize|rep|reverse|sub|unpack|upper)|table\\.(concat|insert|maxn|move|pack|remove|sort|unpack)|math\\.(abs|acos|asin|atan|atan2|ceil|cosh?|deg|exp|floor|fmod|frexp|ldexp|log|log10|max|min|modf|pow|rad|random|randomseed|sinh?|sqrt|tanh?|tointeger|type|ult)|utf8\\.(char|codepoint|codes|len|offset)|io\\.(close|flush|input|lines|open|output|popen|read|tmpfile|type|write)|os\\.(clock|date|difftime|execute|exit|getenv|remove|rename|setlocale|time|tmpname)|package\\.(config|cpath|loaded|loadlib|path|preload|searchers|searchpath|seeall)|debug\\.(debug|[gs]etfenv|[gs]ethook|getinfo|[gs]etlocal|[gs]etmetatable|getregistry|[gs]etupvalue|[gs]etuservalue|traceback|upvalueid|upvaluejoin))\\b(?=\\s*(?:[({"\']|\\[\\[))'
+    'match': '(?<![^.]\\.|:)\\b(coroutine\\.(close|create|isyieldable|resume|running|status|wrap|yield)|string\\.(byte|char|dump|find|format|gmatch|gsub|len|lower|match|pack|packsize|rep|reverse|sub|unpack|upper)|table\\.(concat|create|insert|maxn|move|pack|remove|sort|unpack)|math\\.(abs|acos|asin|atan|atan2|ceil|cosh?|deg|exp|floor|fmod|frexp|ldexp|log|log10|max|min|modf|pow|rad|random|randomseed|sinh?|sqrt|tanh?|tointeger|type|ult)|utf8\\.(char|codepoint|codes|len|offset)|io\\.(close|flush|input|lines|open|output|popen|read|tmpfile|type|write)|os\\.(clock|date|difftime|execute|exit|getenv|remove|rename|setlocale|time|tmpname)|package\\.(config|cpath|loaded|loadlib|path|preload|searchers|searchpath|seeall)|debug\\.(debug|[gs]etfenv|[gs]ethook|getinfo|[gs]etlocal|[gs]etmetatable|getregistry|[gs]etupvalue|[gs]etuservalue|traceback|upvalueid|upvaluejoin))\\b(?=\\s*(?:[({"\']|\\[\\[))'
     'name': 'support.function.library.lua'
   }
   {

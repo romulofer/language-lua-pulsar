@@ -83,7 +83,11 @@
   "not"
 ] @keyword.operator.lua
 
-; ATTRIBUTES (Lua 5.4: <const>, <close>)
+; ATTRIBUTES (Lua 5.4: <const>, <close>; Lua 5.5 also allows <const> on globals)
+; NOTE: the bundled tree-sitter-lua parser is 5.4-era and does not recognise the
+; Lua 5.5 `global` declaration keyword (it produces ERROR nodes). Highlighting of
+; `global` is provided only by the TextMate fallback grammar until the .wasm
+; parser gains 5.5 support.
 ; =====================================
 
 (attribute
