@@ -115,11 +115,16 @@ Coverage:
 - `tree-sitter-grammar-spec.js` — scope assertions for the modern grammar.
 - `folding-spec.js` — folding of functions, blocks, tables and block comments.
 
-Author
+About
 ------
-__Jorge Garrido Oval__
-* [https://github.com/FireZenk](https://github.com/FireZenk)
 
+`language-lua` began as an Atom package and is now maintained for
+[Pulsar](https://pulsar-edit.dev). It has been modernized around a
+tree-sitter grammar and updated to Lua 5.4, while keeping the legacy TextMate
+grammar and Lua 5.1 / LuaJIT built-ins for compatibility.
+
+- **Original author:** __Jorge Garrido Oval__ — [github.com/FireZenk](https://github.com/FireZenk)
+- **Pulsar port & Lua 5.4 modernization:** Rômulo Fernandes Evangelista
 
 Contributors
 ---
@@ -129,7 +134,7 @@ pull request to add snippets, make grammar tweaks, etc.
 
 License
 ------
-Atom language-lua is released under the MIT license.
+`language-lua` is released under the MIT license.
 
 >Originally [converted](http://atom.io/docs/latest/converting-a-text-mate-bundle)
 from the [Lua TextMate bundle](https://github.com/textmate/lua.tmbundle).
