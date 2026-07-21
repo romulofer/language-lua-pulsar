@@ -1,4 +1,4 @@
-// Shared helpers for the language-lua specs.
+// Shared helpers for the language-lua-pulsar specs.
 
 // Column of the first occurrence of `substr` on `row` of the editor's buffer.
 function colOf(editor, row, substr) {

@@ -122,10 +122,10 @@ Coverage:
 
 ## About
 
-`language-lua` began as an Atom package and is now maintained for
-[Pulsar](https://pulsar-edit.dev). It has been modernized around a
-tree-sitter grammar and updated to Lua 5.5, while keeping the legacy TextMate
-grammar and Lua 5.1 / LuaJIT built-ins for compatibility.
+This package began as the Atom package `language-lua` and is now maintained for
+[Pulsar](https://pulsar-edit.dev) as `language-lua-pulsar`. It has been
+modernized around a tree-sitter grammar and updated to Lua 5.5, while keeping
+the legacy TextMate grammar and Lua 5.1 / LuaJIT built-ins for compatibility.
 
 - **Original author:** **Jorge Garrido Oval** — [github.com/FireZenk](https://github.com/FireZenk)
 - **Pulsar port & Lua 5.4/5.5 modernization:** Rômulo Fernandes Evangelista

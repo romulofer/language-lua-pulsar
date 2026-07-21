@@ -1,6 +1,6 @@
-describe('language-lua grammar registration', () => {
+describe('language-lua-pulsar grammar registration', () => {
   beforeEach(async () => {
-    await atom.packages.activatePackage('language-lua');
+    await atom.packages.activatePackage('language-lua-pulsar');
   });
 
   it('registers a grammar for source.lua', () => {

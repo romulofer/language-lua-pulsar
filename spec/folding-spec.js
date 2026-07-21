@@ -1,4 +1,4 @@
-describe('language-lua tree-sitter folding', () => {
+describe('language-lua-pulsar tree-sitter folding', () => {
   let editor;
   let languageMode;
 
@@ -9,7 +9,7 @@ describe('language-lua tree-sitter folding', () => {
 
   beforeEach(async () => {
     atom.config.set('core.useTreeSitterParsers', true);
-    await atom.packages.activatePackage('language-lua');
+    await atom.packages.activatePackage('language-lua-pulsar');
 
     editor = await atom.workspace.open('example.lua');
     editor.displayLayer.reset({ foldCharacter: '…' });

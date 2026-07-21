@@ -4,7 +4,7 @@ Guidance for AI agents working in this repository.
 
 ## Project
 
-`language-lua` is a **Pulsar** editor package (Pulsar is the community
+`language-lua-pulsar` is a **Pulsar** editor package (Pulsar is the community
 successor to Atom) providing Lua language support:
 
 - **Grammars** (`grammars/`)

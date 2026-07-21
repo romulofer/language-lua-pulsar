@@ -1,4 +1,4 @@
-describe('language-lua TextMate grammar (fallback)', () => {
+describe('language-lua-pulsar TextMate grammar (fallback)', () => {
   let grammar;
 
   // Return the scopes of the first token whose text contains `value`.
@@ -14,7 +14,7 @@ describe('language-lua TextMate grammar (fallback)', () => {
   }
 
   beforeEach(async () => {
-    await atom.packages.activatePackage('language-lua');
+    await atom.packages.activatePackage('language-lua-pulsar');
     grammar = atom.grammars.grammars.find(
       (g) => g.scopeName === 'source.lua' && typeof g.tokenizeLine === 'function'
     );

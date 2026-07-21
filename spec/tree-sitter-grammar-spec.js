@@ -1,6 +1,6 @@
 const { scopesFor } = require('./spec-helper');
 
-describe('language-lua modern tree-sitter grammar', () => {
+describe('language-lua-pulsar modern tree-sitter grammar', () => {
   let editor;
   let languageMode;
 
@@ -17,7 +17,7 @@ describe('language-lua modern tree-sitter grammar', () => {
 
   beforeEach(async () => {
     atom.config.set('core.useTreeSitterParsers', true);
-    await atom.packages.activatePackage('language-lua');
+    await atom.packages.activatePackage('language-lua-pulsar');
 
     editor = await atom.workspace.open('example.lua');
     const grammar = atom.grammars.grammarForScopeName('source.lua');
