@@ -1,6 +1,6 @@
 {
   "name": "language-lua-pulsar",
-  "version": "0.10.0",
+  "version": "0.15.0",
   "private": false,
   "main": "lib/main",
   "description": "Lua language support for Pulsar: tree-sitter highlighting, snippets and folding (Lua 5.4, with Lua 5.1/LuaJIT compatibility).",
